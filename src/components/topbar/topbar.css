@@ -1,12 +1,11 @@
 .topbarContainer {
   height: 50px;
   width: 100%;
-  background-color: blue;
+  background-color: #121212;
   display: flex;
   align-items: center;
   position: sticky;
   top: 0;
-  
 }
 
 .topbarLeft {
@@ -58,28 +57,28 @@
 .topbarIcons {
   display: flex;
 }
-.topbarIconItems{
-    margin-right: 15px;
-    cursor: pointer;
-    position: relative;
+.topbarIconItems {
+  margin-right: 15px;
+  cursor: pointer;
+  position: relative;
 }
-.topbarIconBadge{
-    width: 15px;
-    height: 15px;
-    background-color: red;
-    border-radius: 50%;
-    color: white;
-    position: absolute;
-    top:5px;
-    right:-10px;
-    display: flex;
-    justify-content: center;
-    font-size: 10px;
+.topbarIconBadge {
+  width: 15px;
+  height: 15px;
+  background-color: red;
+  border-radius: 50%;
+  color: white;
+  position: absolute;
+  top: 5px;
+  right: -10px;
+  display: flex;
+  justify-content: center;
+  font-size: 10px;
 }
 .topbarImage {
   width: 32px;
   height: 32px;
   border-radius: 50%;
   object-fit: cover;
-  cursor:pointer;
+  cursor: pointer;
 }
