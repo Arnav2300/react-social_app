@@ -7,7 +7,6 @@ import {
   Divider,
   Button,
   Avatar,
-  sx,
 } from "@chakra-ui/react";
 import {
   ImRss,
@@ -29,16 +28,19 @@ export const Sidebar = () => {
       h="calc(100vh - 50px)"
       bg="#121212"
       overflowY="scroll"
+      borderRight="2px"
+      borderRightColor="grey.800"
       sx={{
-        '&::-webkit-scrollbar': {
+        "&::-webkit-scrollbar": {
           width: "4px",
         },
-        '&::-webkit-scrollbar-track': {
+        "&::-webkit-scrollbar-track": {
           width: "6px",
         },
-        '&::-webkit-scrollbar-thumb': {
-          background:"rgb(134,243,99)",
-          background: "linear-gradient(180deg, rgba(134,243,99,1) 0%, rgba(58,233,218,1) 100%)",
+        "&::-webkit-scrollbar-thumb": {
+          background: "rgb(134,243,99)",
+          background:
+            "linear-gradient(180deg, rgba(134,243,99,1) 0%, rgba(58,233,218,1) 100%)",
           borderRadius: "24px",
         },
       }}
@@ -82,7 +84,23 @@ export const Sidebar = () => {
             <Text>Courses</Text>
           </ListItem>
         </UnorderedList>
-        <Button variant="outline" colorScheme="gray" w="150px" p="10px">
+        <Button
+          bgColor="#449086"
+          variant="solid"
+          border="0px"
+          color="gray.800"
+          w="150px"
+          p="10px"
+          _hover={{ bg: "#3ae9da" }}
+          _active={{
+            bg: "#86f363",
+            transform: "scale(0.95)",
+          }}
+          _focus={{
+            boxShadow:
+              "0 0 1px 2px rgba(88, 144, 255, .75), 0 1px 1px rgba(0, 0, 0, .15)",
+          }}
+        >
           Show More
         </Button>
         <Divider orientation="horizontal" mt="20px" mb="20px" />

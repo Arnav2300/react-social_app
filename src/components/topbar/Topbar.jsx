@@ -22,7 +22,8 @@ export const Topbar = () => {
       wrap="wrap"
       h="50px"
       bg="#121212"
-      
+      borderBottom="2px"
+      borderBottomColor="gray.800"
     >
       <Heading
         as="h1"
