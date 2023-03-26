@@ -1,8 +1,15 @@
 import { Box, Image, Avatar, Text, Icon, Img } from "@chakra-ui/react";
 import { SlOptionsVertical } from "react-icons/sl";
-import React from "react";
+import { Users } from "../../dummmyData";
+import React, { useState } from "react";
 
-export default function Post() {
+export default function Post({ post }) {
+  const [like, setLike] = useState(post.like);
+  const [isLiked, setIsLiked] = useState(false);
+  const likeHandler = () => {
+    setLike(isLiked ? like - 1 : like + 1);
+    setIsLiked(!isLiked)
+  };
   return (
     <Box
       w="100%"
@@ -19,22 +26,22 @@ export default function Post() {
             <Avatar
               size="sm"
               name="Kent Dodds"
-              src="/assets/avatars/Png/Artboards_Diversity_Avatars_by_Netguru-34.png"
+              src={Users.filter((u) => u.id === post.userId)[0].profilePicture}
               cursor="pointer"
             />
             <Text fontSize="15px" fontWeight="500" ml="10px" mr="10px">
-              Arnav Saraswat
+              {Users.filter((u) => u.id === post.userId)[0].username}
             </Text>
-            <Text fontSize="12px">5 mins ago</Text>
+            <Text fontSize="12px">{post.date}</Text>
           </Box>
           <Box>
             <Icon as={SlOptionsVertical} />
           </Box>
         </Box>
         <Box mt="20px" mb="20px">
-          <Text>First post!!</Text>
+          <Text>{post?.desc}</Text>
           <Image
-            src="/assets/test_image.jpg"
+            src={post.photo}
             mt="20px"
             w="100%"
             maxHeight="500px"
@@ -49,6 +56,7 @@ export default function Post() {
               h="24px"
               mr="5px"
               cursor="pointer"
+              onClick={likeHandler}
             />
             <Img
               src="/assets/favourite.png"
@@ -56,8 +64,9 @@ export default function Post() {
               h="24px"
               mr="5px"
               cursor="pointer"
+              onClick={likeHandler}
             />
-            <Text fontSize="15px">liked by 32 people</Text>
+            <Text fontSize="15px">liked by {like} people</Text>
           </Box>
           <Box>
             <Text
@@ -67,7 +76,7 @@ export default function Post() {
               borderBottomStyle="dashed"
               fontSize="15px"
             >
-              9 comments
+              {post.comment} comments
             </Text>
           </Box>
         </Box>

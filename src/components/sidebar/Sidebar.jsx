@@ -20,6 +20,8 @@ import {
   ImTicket,
 } from "react-icons/im";
 import React from "react";
+import { Users } from "../../dummmyData";
+import CloseFriends from "../closeFriends/CloseFriends";
 
 export const Sidebar = () => {
   return (
@@ -30,6 +32,8 @@ export const Sidebar = () => {
       overflowY="scroll"
       borderRight="2px"
       borderRightColor="grey.800"
+      position="sticky"
+      top="50px"
       sx={{
         "&::-webkit-scrollbar": {
           width: "4px",
@@ -38,7 +42,6 @@ export const Sidebar = () => {
           width: "6px",
         },
         "&::-webkit-scrollbar-thumb": {
-          background: "rgb(134,243,99)",
           background:
             "linear-gradient(180deg, rgba(134,243,99,1) 0%, rgba(58,233,218,1) 100%)",
           borderRadius: "24px",
@@ -105,33 +108,9 @@ export const Sidebar = () => {
         </Button>
         <Divider orientation="horizontal" mt="20px" mb="20px" />
         <UnorderedList listStyleType="none" p="0" m="0">
-          <ListItem display="flex" alignItems="center" mb="15px">
-            <Avatar
-              size="sm"
-              name="Kent Dodds"
-              src="/assets/avatars/Png/Artboards_Diversity_Avatars_by_Netguru-33.png"
-              cursor="pointer"
-            />
-            <Text color="gray.300">Jane Doe</Text>
-          </ListItem>
-          <ListItem display="flex" alignItems="center" mb="15px">
-            <Avatar
-              size="sm"
-              name="Kent Dodds"
-              src="/assets/avatars/Png/Artboards_Diversity_Avatars_by_Netguru-33.png"
-              cursor="pointer"
-            />
-            <Text color="gray.300">Jane Doe</Text>
-          </ListItem>
-          <ListItem display="flex" alignItems="center" mb="15px">
-            <Avatar
-              size="sm"
-              name="Kent Dodds"
-              src="/assets/avatars/Png/Artboards_Diversity_Avatars_by_Netguru-33.png"
-              cursor="pointer"
-            />
-            <Text color="gray.300">Jane Doe</Text>
-          </ListItem>
+          {Users.map((u)=>(
+            <CloseFriends key={u.id} user={u} />
+          ))}          
         </UnorderedList>
       </Box>
     </Box>

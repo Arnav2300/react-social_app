@@ -24,6 +24,9 @@ export const Topbar = () => {
       bg="#121212"
       borderBottom="2px"
       borderBottomColor="gray.800"
+      position="sticky"
+      top="0px"
+      zIndex="999"
     >
       <Heading
         as="h1"
